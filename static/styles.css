@@ -1,6 +1,7 @@
-@keyframes slide-down {
+/* General Styles */
+@keyframes slide-left {
     0% {
-        translate: 0 -150vw;
+        translate: 150vh 0;
     }
 
     100% {
@@ -8,28 +9,96 @@
     }
 }
 
-:root {
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 img {
     object-fit: cover;
 }
 
-header {
+/* Header Styles */
+header div {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
+    padding: 20px;
     font-size: 50px;
-    animation-name: slide-down;
+    animation-name: slide-left;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
+}
+
+header {
+    background-color: tan;
 }
 
 header img {
     height: 200px;
     transition: 0.5s;
+}
 
+/* Main (section) Styles */
+main {
+    margin: 50px;
+    animation-name: fade-in;
+    animation-duration: 1.5s;
+    animation-delay: 1.5s;
+    animation-fill-mode: both;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input button {
+    font-size: 30px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    background-color: aquamarine;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.input button:hover {
+    background-color: rgb(88, 186, 153);
+    padding: 25px;
+    transition: 0.2s;
+}
+
+h1 + section {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
+    gap: 10px;
+    color: white;
+}
+
+.card {
+    background-color: blue;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.card button {
+    justify-self: flex-start;
 }
