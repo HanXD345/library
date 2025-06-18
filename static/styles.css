@@ -29,6 +29,16 @@ img {
     object-fit: cover;
 }
 
+button {
+    font-size: 30px;
+    padding: 20px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    background-color: aquamarine;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
 /* Header Styles */
 header div {
     display: flex;
@@ -64,17 +74,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.input button {
-    font-size: 30px;
-    padding: 20px;
-    margin-top: 30px;
-    border: 1px solid transparent;
-    border-radius: 15px;
-    background-color: aquamarine;
-    cursor: pointer;
-    transition: 0.2s;
+    height: 100px;
+    margin-bottom: 10px;
 }
 
 .input button:hover {
@@ -84,15 +85,16 @@ main {
 }
 
 h1 + section {
-    margin-top: 20px;
+    margin: 20px 0px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
     gap: 10px;
-    color: white;
 }
 
 .card {
-    background-color: blue;
+    border: 1px solid gray;
+    border-top: 10px solid tan;
+    color: black;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     gap: 10px;
@@ -101,4 +103,13 @@ h1 + section {
 
 .card button {
     justify-self: flex-start;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px 5px;
+    transition: 0.2s;
+}
+
+.card button:hover {
+    background-color: rgb(88, 186, 153);
+    transition: 0.2s;
 }
