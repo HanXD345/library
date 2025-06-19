@@ -20,11 +20,27 @@
 					<button>Add a Book!</button>
 					<dialog>
 						<form action="" method="dialog">
-							<label for="show-title">Title: </label>
-							<input type="text" name="show-title" id="show-title">
+							<label for="title">Title: </label>
+							<input type="text" name="title" id="title">
 
-							<button type="submit">Submit</button>
-							<button type="reset">Cancel</button>
+							<label for="author">Author: </label>
+							<input type="text" name="author" id="author">
+
+							<label for="pages">Number of Pages: </label>
+							<input type="text" name="pages" id="pages">
+
+							<div>
+								<label for="read">Have you finished reading this book?</label>
+								<input type="radio" id="affirm" name="choice" value="true">
+								<label for="affirm">Yes</label>
+								<input type="radio" id="decline" name="choice" value="false">
+								<label for="decline">No</label>
+							</div>
+
+							<div class="buttons">
+								<button type="submit">Submit</button>
+								<button type="reset">Cancel</button>
+							</div>
 						</form>
 					</dialog>
 				</section>
