@@ -29,7 +29,8 @@ img {
     object-fit: cover;
 }
 
-button {
+button,
+.buttons input {
     font-size: 30px;
     padding: 20px;
     border: 1px solid transparent;
@@ -110,7 +111,7 @@ h1 + section {
 }
 
 .card button:hover,
-form button:hover {
+.buttons input:hover {
     background-color: rgb(88, 186, 153);
     transition: 0.2s;
 }
@@ -133,7 +134,7 @@ form div:last-child {
     align-self: center;
 }
 
-form button,
+.buttons input,
 form input {
     padding: 10px;
     font-size: 20px;

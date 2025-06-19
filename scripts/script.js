@@ -55,14 +55,22 @@ function displayBooks() {
 }
 
 // Input handling
-const button = document.querySelector(".input button");
+const addBookButton = document.querySelector(".input > button");
 const dialog = document.querySelector(".input dialog");
+const done = document.querySelector("[type='submit']")
 const cancel = document.querySelector("[type='reset']");
 
 console.log(cancel);
+console.log(done);
 
-button.addEventListener("click", () => {
+addBookButton.addEventListener("click", () => {
     dialog.showModal();
+})
+
+done.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    dialog.close();
 })
 
 cancel.addEventListener("click", () => {
