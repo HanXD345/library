@@ -57,29 +57,33 @@ function displayBooks() {
 // Input handling
 const addBookButton = document.querySelector(".input > button");
 const dialog = document.querySelector(".input dialog");
-const done = document.querySelector("[type='submit']")
-const cancel = document.querySelector("[type='reset']");
-
-console.log(cancel);
-console.log(done);
+const submitButton = document.querySelector("[type='submit']")
+const cancelButton = document.querySelector("[type='reset']");
 
 addBookButton.addEventListener("click", () => {
     dialog.showModal();
 })
 
-done.addEventListener("click", (event) => {
+submitButton.addEventListener("click", (event) => {
     event.preventDefault();
 
+    const form = document.querySelector("form");
+    const formData = new FormData(form);
+
+    const title = formData.get("title");
+    const author = formData.get("author");
+    const pages = formData.get("pages");
+    const choice = formData.get("choice");
+
+    addBookToLibrary(title, author, pages, choice);
+
+    const container = document.querySelector(".container");
+    container.textContent = "";
+    displayBooks();
+
     dialog.close();
 })
 
-cancel.addEventListener("click", () => {
+cancelButton.addEventListener("click", () => {
     dialog.close();
 })
-
-// Sample books
-addBookToLibrary("sample title 1", "sample author 1", "295 pages", true);
-addBookToLibrary("sample title 2", "sample author 2", "295 pages", true);
-addBookToLibrary("sample title 3", "sample author 3", "295 pages", true);
-
-displayBooks();
