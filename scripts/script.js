@@ -1,7 +1,7 @@
 const myLibrary = [];
 
 function Book(title, author, pages, read, id) {
-  // the constructor...
+  // Book Constructor
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -19,6 +19,7 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks() {
+    // For each book, display book with details and buttons
     for (let book of myLibrary) {
         const deleteButton = document.createElement("button");
         const readButton = document.createElement("button");
@@ -53,6 +54,22 @@ function displayBooks() {
     }
 }
 
+// Input handling
+const button = document.querySelector(".input button");
+const dialog = document.querySelector(".input dialog");
+const cancel = document.querySelector("[type='reset']");
+
+console.log(cancel);
+
+button.addEventListener("click", () => {
+    dialog.showModal();
+})
+
+cancel.addEventListener("click", () => {
+    dialog.close();
+})
+
+// Sample books
 addBookToLibrary("sample title 1", "sample author 1", "295 pages", true);
 addBookToLibrary("sample title 2", "sample author 2", "295 pages", true);
 addBookToLibrary("sample title 3", "sample author 3", "295 pages", true);
