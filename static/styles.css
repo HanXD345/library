@@ -71,6 +71,14 @@ main {
     animation-fill-mode: both;
 }
 
+h2 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 20px;
+}
+
 .input {
     display: flex;
     justify-content: center;
