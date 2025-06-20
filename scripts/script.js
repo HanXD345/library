@@ -27,7 +27,7 @@ function displayBooks() {
         readButton.setAttribute("class", "read-button");
 
         deleteButton.textContent = "Delete";
-        readButton.textContent = "Read";
+        readButton.textContent = book.read === 'true' ? 'Unread' : "Read";
 
         const card = document.createElement("div");
         card.setAttribute('class', 'card');
@@ -44,6 +44,10 @@ function displayBooks() {
         const pages = document.createElement("p");
         pages.textContent = book.pages;
         card.appendChild(pages);
+
+        const status = document.createElement("p");
+        status.textContent = book.read === 'true' ? 'Status: Finished' : 'Status: Unfinished';
+        card.appendChild(status);
 
         const div = document.createElement("div");
         div.appendChild(deleteButton);
@@ -100,5 +104,17 @@ container.addEventListener("click", (event) => {
         const cardId = card.getAttribute("id");
         container.removeChild(card)
         myLibrary = myLibrary.filter((book) => book.id !== cardId);
+    } else if (event.target.tagName === "BUTTON" && (event.target.textContent === "Read" || 
+                event.target.textContent === "Unread")) {
+        const card = event.target.parentElement.parentElement;
+        const book = myLibrary.find((book) => book.id === card.getAttribute("id"));
+        book.changeReadStatus();
+        container.textContent = "";
+        displayBooks();
+        event.target.textContent = event.target.textContent === "Read" ? "Unread" : "Read";
     }
-})
+});
+
+Book.prototype.changeReadStatus = function() {
+    this.read = this.read === 'true' ? 'false' : 'true';
+};

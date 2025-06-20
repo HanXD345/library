@@ -85,7 +85,7 @@ main {
     transition: 0.2s;
 }
 
-h1 + section {
+section {
     margin: 20px 0px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
