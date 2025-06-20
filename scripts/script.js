@@ -21,14 +21,6 @@ function addBookToLibrary(title, author, pages, read) {
 function displayBooks() {
     // For each book, display book with details and buttons
     for (let book of myLibrary) {
-        const deleteButton = document.createElement("button");
-        deleteButton.setAttribute("class", "delete-button");
-        const readButton = document.createElement("button");
-        readButton.setAttribute("class", "read-button");
-
-        deleteButton.textContent = "Delete";
-        readButton.textContent = book.read === 'true' ? 'Unread' : "Read";
-
         const card = document.createElement("div");
         card.setAttribute('class', 'card');
         card.setAttribute('id', book.id)
@@ -50,6 +42,15 @@ function displayBooks() {
         card.appendChild(status);
 
         const div = document.createElement("div");
+
+        const deleteButton = document.createElement("button");
+        deleteButton.setAttribute("class", "delete-button");
+        const readButton = document.createElement("button");
+        readButton.setAttribute("class", "read-button");
+
+        deleteButton.textContent = "Delete";
+        readButton.textContent = book.read === 'true' ? 'Unread' : "Read";
+
         div.appendChild(deleteButton);
         div.appendChild(readButton);
 
