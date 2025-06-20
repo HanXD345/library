@@ -111,7 +111,6 @@ container.addEventListener("click", (event) => {
         book.changeReadStatus();
         container.textContent = "";
         displayBooks();
-        event.target.textContent = event.target.textContent === "Read" ? "Unread" : "Read";
     }
 });
 
