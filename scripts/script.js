@@ -30,11 +30,11 @@ function displayBooks() {
         card.appendChild(title);
 
         const author = document.createElement("p");
-        author.textContent = book.author;
+        author.textContent = "By " + book.author;
         card.appendChild(author);
 
         const pages = document.createElement("p");
-        pages.textContent = book.pages;
+        pages.textContent = "Number of pages: " + book.pages;
         card.appendChild(pages);
 
         const status = document.createElement("p");
@@ -88,6 +88,7 @@ submitButton.addEventListener("click", (event) => {
     container.textContent = "";
     displayBooks();
 
+    form.reset();
     dialog.close();
 })
 
