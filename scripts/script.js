@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, read, id) {
   // Book Constructor
@@ -15,21 +15,23 @@ function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read, id);
   myLibrary.push(book);
 
-  return myLibrary
+  return myLibrary;
 }
 
 function displayBooks() {
     // For each book, display book with details and buttons
     for (let book of myLibrary) {
         const deleteButton = document.createElement("button");
+        deleteButton.setAttribute("class", "delete-button");
         const readButton = document.createElement("button");
+        readButton.setAttribute("class", "read-button");
 
         deleteButton.textContent = "Delete";
         readButton.textContent = "Read";
 
-        console.log(book);
         const card = document.createElement("div");
         card.setAttribute('class', 'card');
+        card.setAttribute('id', book.id)
 
         const title = document.createElement("h2");
         title.textContent = book.title;
@@ -86,4 +88,17 @@ submitButton.addEventListener("click", (event) => {
 
 cancelButton.addEventListener("click", () => {
     dialog.close();
+})
+
+// Delete and Read Button Handling
+const container = document.querySelector(".container");
+
+container.addEventListener("click", (event) => {
+    if (event.target.tagName === "BUTTON" && event.target.textContent === "Delete") {
+        // target = delete button, parent of button = div, parent of div = card
+        const card = event.target.parentElement.parentElement;
+        const cardId = card.getAttribute("id");
+        container.removeChild(card)
+        myLibrary = myLibrary.filter((book) => book.id !== cardId);
+    }
 })
