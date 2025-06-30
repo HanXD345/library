@@ -1,3 +1,5 @@
+// Class implementation
+
 class Book {
     constructor(title, author, pages, read) {
         this.title = title;
@@ -20,7 +22,7 @@ class MyLibrary {
     }
 
     static removeFromLibrary(cardId) {
-        this.#books.filter((book) => book.id !== cardId);
+        this.#books = this.#books.filter((book) => book.id !== cardId);
     }
 
     static addBook(book) {
